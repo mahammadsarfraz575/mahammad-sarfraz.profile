@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahammad Sarfraz — Data Analyst & AI Systems Builder</title>
+<meta name="description" content="Mahammad Sarfraz — Data Analyst, BI Developer and AI Systems Builder based in Dubai, UAE. 10+ live projects. MCA Data Science. Microsoft-certified.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:     #08090D;
+  --ink2:    #111320;
+  --slate:   #1E2235;
+  --slate2:  #252A40;
+  --indigo:  #6366F1;
+  --indigo2: #4F46E5;
+  --gold:    #EAB308;
+  --gold2:   #CA8A04;
+  --green:   #10B981;
+  --sky:     #38BDF8;
+  --rose:    #F43F5E;
+  --white:   #F1F5F9;
+  --muted:   #94A3B8;
+  --dim:     #475569;
+  --border:  rgba(99,102,241,0.12);
+  --syne:    'Syne', sans-serif;
+  --inter:   'Inter', sans-serif;
+  --r:       10px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--inter);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 60px; height: 64px;
+  background: rgba(8,9,13,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition: height 0.3s;
+}
+.nav-logo {
+  font-family: var(--syne); font-size: 17px; font-weight: 700;
+  color: var(--white); letter-spacing: -0.5px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--indigo);
+  box-shadow: 0 0 10px var(--indigo);
+  animation: pulse-logo 3s ease-in-out infinite;
+}
+@keyframes pulse-logo { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.nav-items { display: flex; gap: 8px; align-items: center; list-style: none; }
+.nav-items a {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  padding: 6px 12px; border-radius: 6px; transition: all 0.15s; font-weight: 500;
+}
+.nav-items a:hover { color: var(--white); background: var(--slate); }
+.nav-items a.active { color: var(--white); }
+.nav-cta {
+  background: var(--indigo) !important;
+  color: var(--white) !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--indigo2) !important; }
+
+/* ── HERO ── */
+#hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 380px;
+  align-items: center; gap: 60px;
+  padding: 100px 60px 80px;
+  max-width: 1300px; margin: 0 auto;
+}
+#bg-canvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: 0.5;
+}
+.hero-left { position: relative; z-index: 1; }
+.hero-availability {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 12px; color: var(--green); font-weight: 500;
+  margin-bottom: 36px; letter-spacing: 0.2px;
+}
+.avail-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+  animation: pulse-avail 2s ease-in-out infinite;
+}
+@keyframes pulse-avail { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)} 50%{box-shadow:0 0 0 6px rgba(16,185,129,0)} }
+h1.hero-name {
+  font-family: var(--syne);
+  font-size: clamp(56px, 7vw, 100px);
+  font-weight: 800; line-height: 0.92;
+  letter-spacing: -4px; margin-bottom: 28px;
+  color: var(--white);
+}
+h1.hero-name .outline {
+  -webkit-text-stroke: 2px rgba(99,102,241,0.6);
+  color: transparent; display: block;
+}
+.hero-descriptor {
+  font-size: 18px; color: var(--muted); line-height: 1.75;
+  max-width: 520px; margin-bottom: 40px; font-weight: 400;
+}
+.hero-descriptor strong { color: var(--white); font-weight: 600; }
+.hero-typed-wrap {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 48px;
+}
+.hero-typed-label { font-size: 13px; color: var(--dim); }
+.hero-typed {
+  font-family: var(--syne); font-size: 22px; font-weight: 600;
+  color: var(--indigo); min-height: 32px;
+}
+.typed-cursor {
+  display: inline-block; width: 2px; height: 1.1em;
+  background: var(--indigo); margin-left: 2px; vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50%{opacity:0} }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-fill {
+  padding: 12px 28px; background: var(--indigo); color: var(--white);
+  font-family: var(--syne); font-size: 14px; font-weight: 600;
+  text-decoration: none; border-radius: var(--r);
+  border: 2px solid var(--indigo); transition: all 0.2s;
+}
+.btn-fill:hover { background: var(--indigo2); border-color: var(--indigo2); transform: translateY(-1px); }
+.btn-ghost {
+  padding: 12px 28px; background: transparent; color: var(--white);
+  font-family: var(--syne); font-size: 14px; font-weight: 600;
+  text-decoration: none; border-radius: var(--r);
+  border: 2px solid var(--slate2); transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); transform: translateY(-1px); }
+
+/* HERO CARD */
+.hero-card {
+  position: relative; z-index: 1;
+  background: var(--slate);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);
+  pointer-events: none;
+}
+.hc-title { font-family: var(--syne); font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.5px; }
+.hc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.hc-stat {
+  background: var(--ink2); border-radius: 10px; padding: 16px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.hc-stat-n { font-family: var(--syne); font-size: 28px; font-weight: 700; color: var(--indigo); line-height: 1; }
+.hc-stat-l { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.hc-divider { height: 1px; background: var(--border); margin: 20px 0; }
+.hc-info-row {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--muted); margin-bottom: 10px;
+}
+.hc-info-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+.hc-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.hc-badge {
+  font-size: 11px; font-weight: 500; padding: 4px 10px;
+  border-radius: 100px; border: 1px solid;
+}
+.hc-badge.g { border-color: var(--green); color: var(--green); background: rgba(16,185,129,0.07); }
+.hc-badge.i { border-color: var(--indigo); color: var(--indigo); background: rgba(99,102,241,0.07); }
+.hc-badge.gold { border-color: var(--gold); color: var(--gold); background: rgba(234,179,8,0.07); }
+
+/* ── DIVIDER ── */
+.section-line {
+  width: calc(100% - 120px); margin: 0 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), rgba(99,102,241,0.2), var(--border), transparent);
+  position: relative; z-index: 1;
+}
+
+/* ── SECTION BASE ── */
+.sec { position: relative; z-index: 1; padding: 90px 60px; max-width: 1300px; margin: 0 auto; }
+h2.sec-h {
+  font-family: var(--syne); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700; letter-spacing: -2px; color: var(--white);
+  margin-bottom: 56px; line-height: 1.05;
+}
+h2.sec-h span { color: var(--indigo); }
+.sec-intro { font-size: 16px; color: var(--muted); max-width: 520px; line-height: 1.75; margin-top: -36px; margin-bottom: 52px; }
+
+/* ── SKILLS ── */
+.skills-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+.sk-block {
+  background: var(--slate); padding: 28px;
+  transition: background 0.2s;
+}
+.sk-block:hover { background: var(--slate2); }
+.sk-block-icon { font-size: 22px; margin-bottom: 12px; }
+.sk-block-name { font-family: var(--syne); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.sk-block-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.sk-pill {
+  font-size: 11px; font-weight: 500; padding: 3px 8px;
+  border-radius: 5px; background: var(--ink2);
+  color: var(--muted); border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.15s;
+}
+.sk-block:hover .sk-pill { border-color: rgba(99,102,241,0.2); }
+
+/* ── PROJECTS ── */
+.proj-controls {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.search-wrap {
+  position: relative; flex: 1; min-width: 200px; max-width: 320px;
+}
+.search-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--dim); font-size: 14px; pointer-events: none;
+}
+#proj-search {
+  width: 100%; background: var(--slate); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 10px 14px 10px 38px;
+  color: var(--white); font-size: 13px; font-family: var(--inter);
+  outline: none; transition: border-color 0.2s;
+}
+#proj-search:focus { border-color: var(--indigo); }
+#proj-search::placeholder { color: var(--dim); }
+.filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.ftab {
+  padding: 7px 16px; border-radius: 8px; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font-family: var(--inter);
+  transition: all 0.15s;
+}
+.ftab:hover { border-color: var(--indigo); color: var(--indigo); }
+.ftab.active { background: var(--indigo); border-color: var(--indigo); color: var(--white); }
+.proj-count { font-size: 12px; color: var(--dim); margin-left: auto; }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+.proj-card {
+  background: var(--slate); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99,102,241,0.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.1);
+}
+.proj-card.hidden { display: none; }
+.proj-vis {
+  height: 150px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 16px;
+}
+.proj-vis canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.proj-live-badge {
+  position: relative; z-index: 2;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(8,9,13,0.7); backdrop-filter: blur(8px);
+  border: 1px solid rgba(16,185,129,0.3); border-radius: 100px;
+  font-size: 10px; font-weight: 600; color: var(--green);
+  padding: 3px 10px; letter-spacing: 0.5px;
+}
+.live-d { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse-avail 2s infinite; }
+.proj-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+.proj-cat { font-size: 11px; font-weight: 600; color: var(--indigo); margin-bottom: 6px; letter-spacing: 0.5px; }
+.proj-title { font-family: var(--syne); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+.proj-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; flex: 1; }
+.proj-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+.p-tag {
+  font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 4px;
+  background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.18); color: var(--gold);
+}
+.proj-links { display: flex; gap: 8px; }
+.p-link {
+  font-size: 12px; font-weight: 600; color: var(--indigo); text-decoration: none;
+  padding: 7px 14px; border-radius: 7px;
+  border: 1px solid rgba(99,102,241,0.2); background: rgba(99,102,241,0.05);
+  transition: all 0.15s; display: flex; align-items: center; gap: 5px;
+}
+.p-link:hover { background: rgba(99,102,241,0.15); border-color: var(--indigo); color: var(--white); }
+.no-results {
+  grid-column: 1/-1; text-align: center;
+  padding: 60px; color: var(--dim); font-size: 15px; display: none;
+}
+.no-results.show { display: block; }
+
+/* ── EXPERIENCE ── */
+.exp-grid { display: grid; gap: 2px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+.exp-item { background: var(--slate); padding: 32px 36px; position: relative; transition: background 0.2s; }
+.exp-item:hover { background: var(--slate2); }
+.exp-item::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--indigo), var(--gold));
+  opacity: 0; transition: opacity 0.2s;
+}
+.exp-item:hover::before { opacity: 1; }
+.exp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 6px; flex-wrap: wrap; }
+.exp-title { font-family: var(--syne); font-size: 20px; font-weight: 700; color: var(--white); }
+.exp-date { font-size: 12px; font-weight: 600; color: var(--indigo); background: rgba(99,102,241,0.08); padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
+.exp-org { font-size: 14px; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.exp-pts { list-style: none; }
+.exp-pts li { font-size: 13px; color: var(--muted); line-height: 1.7; padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.exp-pts li:last-child { border: none; }
+.exp-pts li::before { content: '▸'; position: absolute; left: 0; top: 8px; color: var(--indigo); font-size: 9px; }
+.exp-pts li strong { color: var(--white); }
+
+/* ── CERTIFICATIONS ── */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.cert-card {
+  background: var(--slate); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 18px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: all 0.2s;
+}
+.cert-card:hover { border-color: rgba(234,179,8,0.25); transform: translateY(-2px); }
+.cert-icon { font-size: 20px; flex-shrink: 0; }
+.cert-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 3px; line-height: 1.3; }
+.cert-src { font-size: 11px; color: var(--gold); font-weight: 500; }
+
+/* ── CONTACT ── */
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contact-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.c-link {
+  display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 500;
+  color: var(--muted); text-decoration: none; padding: 14px 18px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--slate); transition: all 0.2s;
+}
+.c-link:hover { color: var(--white); border-color: rgba(99,102,241,0.3); background: var(--slate2); }
+.c-icon { font-size: 18px; flex-shrink: 0; }
+.open-to {
+  background: var(--slate); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px;
+}
+.open-to-title { font-family: var(--syne); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+.open-to-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.role-tag {
+  font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 8px;
+  background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); color: var(--indigo);
+}
+
+/* TERMINAL */
+.terminal {
+  background: #0A0B10; border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.t-bar {
+  background: var(--slate); padding: 12px 16px;
+  display: flex; align-items: center; gap: 7px; border-bottom: 1px solid var(--border);
+}
+.t-circle { width: 10px; height: 10px; border-radius: 50%; }
+.t-circle.r{background:#FF5F57} .t-circle.y{background:#FFBD2E} .t-circle.g{background:#28C840}
+.t-title { font-size: 11px; color: var(--dim); margin: 0 auto; font-family: var(--inter); }
+.t-body { padding: 22px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 2; }
+.t-line { display: flex; gap: 10px; }
+.t-p{color:#10B981} .t-c{color:var(--white)} .t-o{color:var(--dim);padding-left:14px}
+.t-k{color:var(--sky)} .t-v{color:var(--gold)}
+
+/* GITHUB DEPLOY */
+.deploy-box {
+  margin-top: 60px; background: var(--slate);
+  border: 1px solid rgba(56,189,248,0.15); border-radius: 16px; padding: 36px;
+}
+.deploy-title { font-family: var(--syne); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.deploy-title span { color: var(--sky); }
+.deploy-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+.deploy-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+.d-step { background: var(--ink2); border-radius: 10px; padding: 18px; border: 1px solid rgba(56,189,248,0.08); }
+.d-step-n { font-size: 11px; font-weight: 700; color: var(--sky); margin-bottom: 7px; }
+.d-step-t { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 5px; font-family: var(--syne); }
+.d-step-d { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.deploy-code {
+  background: #0A0B10; border: 1px solid rgba(56,189,248,0.1); border-radius: 8px;
+  padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 12px;
+  line-height: 1.9; overflow-x: auto;
+}
+.dc{color:var(--sky)} .dg{color:var(--green)} .dw{color:var(--white)} .dm{color:var(--dim)}
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1; text-align: center;
+  padding: 36px 60px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--dim);
+}
+footer a { color: var(--indigo); text-decoration: none; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.001ms !important; }
+}
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-items { display: none; }
+  #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; }
+  .hero-card { display: none; }
+  .sec { padding: 60px 20px; }
+  .skills-layout { grid-template-columns: 1fr 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .section-line { width: calc(100% - 40px); margin: 0 20px; }
+  .deploy-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .skills-layout { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Mahammad Sarfraz
+  </div>
+  <ul class="nav-items">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#deploy">Deploy</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-left">
+    <div class="hero-availability">
+      <span class="avail-dot"></span>
+      Open to work · Dubai, UAE · Immediate start
+    </div>
+    <h1 class="hero-name">
+      Mahammad<br>
+      <span class="outline">Sarfraz</span>
+    </h1>
+    <div class="hero-typed-wrap">
+      <span class="hero-typed-label">Currently working as</span>
+      <div class="hero-typed" id="typed-text"><span class="typed-cursor"></span></div>
+    </div>
+    <p class="hero-descriptor">
+      I design and deploy <strong>intelligent data systems</strong> — from automated ETL pipelines
+      and ML prediction models to real-time institutional platforms and live production apps.
+      <strong>10+ projects live</strong>. <strong>MCA in Data Science (A+)</strong>. Microsoft-certified in Azure ML & Fabric.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-fill">View Projects</a>
+      <a href="https://student-dropout-prediction-mahammadsarfraz.streamlit.app/" target="_blank" class="btn-ghost">Live ML App ↗</a>
+      <a href="https://github.com/mahammadsarfraz575" target="_blank" class="btn-ghost">GitHub</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hc-title">At a glance</div>
+    <div class="hc-stats">
+      <div class="hc-stat"><div class="hc-stat-n" id="c-exp">0</div><div class="hc-stat-l">Years in UAE</div></div>
+      <div class="hc-stat"><div class="hc-stat-n" id="c-proj">0</div><div class="hc-stat-l">Live Projects</div></div>
+      <div class="hc-stat"><div class="hc-stat-n" id="c-tools">0</div><div class="hc-stat-l">Tools & Stacks</div></div>
+      <div class="hc-stat"><div class="hc-stat-n" id="c-certs">0</div><div class="hc-stat-l">Certifications</div></div>
+    </div>
+    <div class="hc-divider"></div>
+    <div class="hc-info-row"><span class="hc-info-icon">📍</span>Dubai, UAE</div>
+    <div class="hc-info-row"><span class="hc-info-icon">📞</span>+971 56 121 1099</div>
+    <div class="hc-info-row"><span class="hc-info-icon">🎓</span>MCA — Data Science (A+)</div>
+    <div class="hc-info-row"><span class="hc-info-icon">✉</span>mahammadsarfraz575@gmail.com</div>
+    <div class="hc-badges">
+      <span class="hc-badge g">UAE Visa ✓</span>
+      <span class="hc-badge g">Driving Licence</span>
+      <span class="hc-badge i">Azure ML Certified</span>
+      <span class="hc-badge gold">MS Fabric Certified</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-line"></div>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <h2 class="sec-h reveal">What I <span>build with</span></h2>
+  <div class="skills-layout reveal">
+    <div class="sk-block">
+      <div class="sk-block-icon">🧠</div>
+      <div class="sk-block-name">Machine Learning</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">Python</span><span class="sk-pill">scikit-learn</span>
+        <span class="sk-pill">Random Forest</span><span class="sk-pill">XGBoost</span>
+        <span class="sk-pill">pandas</span><span class="sk-pill">NumPy</span>
+        <span class="sk-pill">Feature Engineering</span><span class="sk-pill">Streamlit</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <div class="sk-block-icon">📊</div>
+      <div class="sk-block-name">Business Intelligence</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">Power BI</span><span class="sk-pill">DAX</span>
+        <span class="sk-pill">Tableau</span><span class="sk-pill">Excel Advanced</span>
+        <span class="sk-pill">Dashboard Design</span><span class="sk-pill">A/B Testing</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <div class="sk-block-icon">🗄️</div>
+      <div class="sk-block-name">Data Engineering</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">SQL</span><span class="sk-pill">MySQL</span>
+        <span class="sk-pill">PostgreSQL</span><span class="sk-pill">Snowflake</span>
+        <span class="sk-pill">ETL Pipelines</span><span class="sk-pill">Stored Procedures</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <div class="sk-block-icon">☁️</div>
+      <div class="sk-block-name">Cloud & AI Infra</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">Azure ML</span><span class="sk-pill">Microsoft Fabric</span>
+        <span class="sk-pill">Firebase</span><span class="sk-pill">Netlify</span>
+        <span class="sk-pill">GitHub Pages</span><span class="sk-pill">Streamlit Cloud</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <div class="sk-block-icon">🌐</div>
+      <div class="sk-block-name">Web Development</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">PHP</span><span class="sk-pill">Django</span>
+        <span class="sk-pill">JavaScript</span><span class="sk-pill">HTML5/CSS3</span>
+        <span class="sk-pill">REST APIs</span><span class="sk-pill">WordPress</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <div class="sk-block-icon">⚙️</div>
+      <div class="sk-block-name">Automation & Systems</div>
+      <div class="sk-block-tags">
+        <span class="sk-pill">Python Automation</span><span class="sk-pill">Email API</span>
+        <span class="sk-pill">Cron Jobs</span><span class="sk-pill">PowerSchool</span>
+        <span class="sk-pill">SIMS Integration</span><span class="sk-pill">Real-Time Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec">
+  <h2 class="sec-h reveal">Projects <span>&amp; live systems</span></h2>
+  <p class="sec-intro reveal">10+ production deployments. Filter by type or search by name, tech, or keyword.</p>
+
+  <div class="proj-controls reveal">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="proj-search" placeholder="Search projects, tech, keywords…">
+    </div>
+    <div class="filter-tabs">
+      <button class="ftab active" data-filter="all">All</button>
+      <button class="ftab" data-filter="ml">AI & ML</button>
+      <button class="ftab" data-filter="data">Data & BI</button>
+      <button class="ftab" data-filter="web">Web & Systems</button>
+      <button class="ftab" data-filter="live">Live Apps</button>
+    </div>
+    <span class="proj-count" id="proj-count">10 projects</span>
+  </div>
+
+  <div class="proj-grid" id="proj-grid">
+
+    <!-- 1 Student Dropout -->
+    <div class="proj-card" data-cat="ml live" data-tags="student dropout prediction machine learning python streamlit random forest feature engineering classification">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0f0a1f,#1a0f2e)">
+        <canvas class="pc" data-c="#6366F1"></canvas>
+        <span class="proj-live-badge"><span class="live-d"></span>Live</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">AI & Machine Learning</div>
+        <div class="proj-title">Student Dropout Prediction</div>
+        <div class="proj-desc">End-to-end ML pipeline classifying student outcomes (pass / withdraw / fail) on the Open University dataset. Handles class imbalance, missing values, and multi-table feature engineering. Publicly deployed.</div>
+        <div class="proj-stack"><span class="p-tag">Python</span><span class="p-tag">scikit-learn</span><span class="p-tag">Random Forest</span><span class="p-tag">Streamlit</span><span class="p-tag">Feature Engineering</span></div>
+        <div class="proj-links">
+          <a href="https://student-dropout-prediction-mahammadsarfraz.streamlit.app/" target="_blank" class="p-link">↗ Live App</a>
+          <a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 UAE Air Quality -->
+    <div class="proj-card" data-cat="ml live data" data-tags="uae air quality api real-time prediction streamlit environment dubai pollutant aqi pm2.5">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0a1520,#0f2030)">
+        <canvas class="pc" data-c="#38BDF8"></canvas>
+        <span class="proj-live-badge"><span class="live-d"></span>Live</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">AI & Real-Time Analytics</div>
+        <div class="proj-title">UAE Air Quality Intelligence</div>
+        <div class="proj-desc">Real-time air quality monitoring for Dubai and UAE. Integrates live API data to track AQI, PM2.5, PM10, NO2 with predictive trend analysis and automated health advisory alerts.</div>
+        <div class="proj-stack"><span class="p-tag">Python</span><span class="p-tag">REST API</span><span class="p-tag">Streamlit</span><span class="p-tag">pandas</span><span class="p-tag">UAE Open Data</span></div>
+        <div class="proj-links">
+          <a href="https://mahammadsarfraz575-uae-air-quality-intelligence-app-erjrrr.streamlit.app/" target="_blank" class="p-link">↗ Live App</a>
+          <a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 SIMS Pipeline -->
+    <div class="proj-card" data-cat="data live ml" data-tags="sims pipeline etl data automation school analytics institutional reporting streamlit">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0a1f15,#0f2a1a)">
+        <canvas class="pc" data-c="#10B981"></canvas>
+        <span class="proj-live-badge"><span class="live-d"></span>Live</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Data Pipeline & Analytics</div>
+        <div class="proj-title">SIMS Data Pipeline & Analytics</div>
+        <div class="proj-desc">Live platform connecting directly to SIMS, automating institutional data extraction, transformation, and delivering complete statistical analysis with interactive cohort dashboards — eliminating all manual exports.</div>
+        <div class="proj-stack"><span class="p-tag">Python</span><span class="p-tag">Streamlit</span><span class="p-tag">SIMS Integration</span><span class="p-tag">ETL</span><span class="p-tag">pandas</span></div>
+        <div class="proj-links">
+          <a href="https://sms-system.streamlit.app/" target="_blank" class="p-link">↗ Live App</a>
+          <a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Academic Dashboard -->
+    <div class="proj-card" data-cat="data" data-tags="power bi dashboard academic performance school analytics etl automation dax excel reporting">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#150a1f,#22103a)">
+        <canvas class="pc" data-c="#C084FC"></canvas>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Business Intelligence</div>
+        <div class="proj-title">Academic Performance Dashboard Suite</div>
+        <div class="proj-desc">Automated Power BI dashboards integrating GL, CAT4, and MAP assessment data for 4,000+ students. Used daily by senior leadership. Python pipelines cut manual reporting time by 65%.</div>
+        <div class="proj-stack"><span class="p-tag">Power BI</span><span class="p-tag">DAX</span><span class="p-tag">Python</span><span class="p-tag">SQL</span><span class="p-tag">PowerSchool</span><span class="p-tag">SIMS</span></div>
+        <div class="proj-links"><a href="mailto:mahammadsarfraz575@gmail.com" class="p-link">✉ Request Demo</a></div>
+      </div>
+    </div>
+
+    <!-- 5 IBM HR -->
+    <div class="proj-card" data-cat="data" data-tags="ibm hr sql stored procedures xampp mysql power bi analytics attrition workforce">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#1a1205,#2a1c08)">
+        <canvas class="pc" data-c="#EAB308"></canvas>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Data Architecture & BI</div>
+        <div class="proj-title">IBM HR Analytics — End-to-End</div>
+        <div class="proj-desc">Complete data architecture: IBM HR dataset → MySQL database → stored procedures → Power BI connected dashboard. SQL queries answering attrition, salary bands, department performance, and workforce trends.</div>
+        <div class="proj-stack"><span class="p-tag">SQL</span><span class="p-tag">MySQL</span><span class="p-tag">Stored Procedures</span><span class="p-tag">XAMPP</span><span class="p-tag">Power BI</span><span class="p-tag">DAX</span></div>
+        <div class="proj-links"><a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- 6 Job Automation -->
+    <div class="proj-card" data-cat="ml web" data-tags="job automation python email api cron scheduled agentic automation notification scraping">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0f1520,#151f30)">
+        <canvas class="pc" data-c="#F43F5E"></canvas>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Agentic Automation</div>
+        <div class="proj-title">Automated Job Intelligence System</div>
+        <div class="proj-desc">Autonomous system that scrapes, filters, and delivers personalised daily job notifications via email. Implements agentic AI pattern: perception → filtering → action → delivery. Runs on a daily schedule.</div>
+        <div class="proj-stack"><span class="p-tag">Python</span><span class="p-tag">Email API</span><span class="p-tag">Cron Jobs</span><span class="p-tag">Automation</span></div>
+        <div class="proj-links"><a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- 7 Teacher Timetable -->
+    <div class="proj-card" data-cat="web live" data-tags="teacher timetable scheduling system javascript real-time school room load year group lesson">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0a0f20,#10152e)">
+        <canvas class="pc" data-c="#818CF8"></canvas>
+        <span class="proj-live-badge"><span class="live-d"></span>Live</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Real-Time Web System</div>
+        <div class="proj-title">Teacher Timetable Intelligence System</div>
+        <div class="proj-desc">Live institutional system tracking teacher workload, room allocation, lesson scheduling, year-group analysis, and day-level capacity. Conflict detection prevents double-booking. Serves real users daily.</div>
+        <div class="proj-stack"><span class="p-tag">JavaScript</span><span class="p-tag">HTML5</span><span class="p-tag">CSS3</span><span class="p-tag">Scheduling Logic</span><span class="p-tag">GitHub Pages</span></div>
+        <div class="proj-links">
+          <a href="https://mahammadsarfraz575.github.io/DISB---TT/" target="_blank" class="p-link">↗ Live System</a>
+          <a href="https://github.com/mahammadsarfraz575/DISB---TT" target="_blank" class="p-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 Room 110 -->
+    <div class="proj-card" data-cat="web live" data-tags="room mess bill firebase netlify real-time multi-user javascript production live app">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0f1a0a,#182a10)">
+        <canvas class="pc" data-c="#34D399"></canvas>
+        <span class="proj-live-badge"><span class="live-d"></span>Live · Real Users</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Firebase · Production App</div>
+        <div class="proj-title">Room 110 — Bill Management App</div>
+        <div class="proj-desc">Live multi-user app for shared accommodation bill splitting. Built on Firebase real-time database — data syncs instantly across all users. Deployed on Netlify. Real daily users in production.</div>
+        <div class="proj-stack"><span class="p-tag">Firebase</span><span class="p-tag">JavaScript</span><span class="p-tag">Netlify</span><span class="p-tag">Real-Time DB</span><span class="p-tag">Multi-User</span></div>
+        <div class="proj-links">
+          <a href="https://room110.netlify.app/" target="_blank" class="p-link">↗ Live App</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 WMS + E-Commerce -->
+    <div class="proj-card" data-cat="web" data-tags="warehouse management system ecommerce django php mysql javascript full stack erp inventory">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#1a0f08,#2a1a0f)">
+        <canvas class="pc" data-c="#FB923C"></canvas>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Full-Stack Engineering</div>
+        <div class="proj-title">E-Commerce + Warehouse Management</div>
+        <div class="proj-desc">Two production systems: a full-stack e-commerce platform (auth, cart, orders, admin panel) and a WMS with live inventory tracking, stock alerts, and supplier management — both backed by MySQL.</div>
+        <div class="proj-stack"><span class="p-tag">Django</span><span class="p-tag">PHP</span><span class="p-tag">MySQL</span><span class="p-tag">JavaScript</span><span class="p-tag">REST API</span></div>
+        <div class="proj-links"><a href="https://github.com/mahammadsarfraz575" target="_blank" class="p-link">GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- 10 Client Websites -->
+    <div class="proj-card" data-cat="web" data-tags="wordpress php html css seo responsive design client website jumana city guard global electro">
+      <div class="proj-vis" style="background:linear-gradient(135deg,#0a1520,#102030)">
+        <canvas class="pc" data-c="#94A3B8"></canvas>
+      </div>
+      <div class="proj-body">
+        <div class="proj-cat">Client Web Development</div>
+        <div class="proj-title">3 Client Websites — Delivered</div>
+        <div class="proj-desc">Full lifecycle delivery for three UAE businesses: JUMANA Equipment & Workshop Machine Trading LLC, City Guard Pest Control, and Global Electro Lighting. Responsive design, on-page SEO, custom themes, and client handover.</div>
+        <div class="proj-stack"><span class="p-tag">WordPress</span><span class="p-tag">PHP</span><span class="p-tag">HTML/CSS</span><span class="p-tag">On-Page SEO</span><span class="p-tag">MySQL</span></div>
+        <div class="proj-links"><a href="mailto:mahammadsarfraz575@gmail.com" class="p-link">✉ Enquire</a></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="no-results" id="no-results">No projects match your search. Try a different keyword or filter.</div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec">
+  <h2 class="sec-h reveal">Work <span>experience</span></h2>
+  <div class="exp-grid reveal">
+    <div class="exp-item">
+      <div class="exp-top">
+        <div class="exp-title">Data Analyst</div>
+        <div class="exp-date">Oct 2024 — Present</div>
+      </div>
+      <div class="exp-org">School of Research Science · Dubai, UAE</div>
+      <ul class="exp-pts">
+        <li>Manage institution-wide datasets across <strong>PowerSchool and SIMS</strong> for 4,000+ students, maintaining 100% accuracy for regulatory reporting.</li>
+        <li>Built and maintain automated <strong>Power BI & Excel dashboards</strong> integrating GL, CAT4, MAP — used daily by senior leadership for strategic planning.</li>
+        <li>Automated Python data pipelines cutting manual reporting time by <strong>65%</strong> — enabling same-day analytical turnaround.</li>
+        <li>Deployed the <strong>SIMS Data Pipeline App</strong> and <strong>Teacher Timetable System</strong> — both serving real operational users daily.</li>
+        <li>Statistical cohort analysis identifying learning gaps and intervention signals informing curriculum decisions.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-top">
+        <div class="exp-title">Web Developer & Data Support Analyst</div>
+        <div class="exp-date">Oct 2023 — Aug 2024</div>
+      </div>
+      <div class="exp-org">Global Electro Lighting · Dubai, UAE (Hybrid)</div>
+      <ul class="exp-pts">
+        <li>Designed, built and optimised company website using <strong>HTML5, CSS3, JavaScript, PHP</strong> — improved SEO and session retention.</li>
+        <li>Managed <strong>MySQL databases</strong> for product inventories and customer records with security and normalisation protocols.</li>
+        <li>Analysed server logs and web traffic to identify bottlenecks and implement targeted performance fixes.</li>
+        <li>Delivered <strong>3 client websites</strong> end-to-end — JUMANA Equipment, City Guard, Global Electro — from requirements to handover.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- CERTS -->
+<section id="certs" class="sec">
+  <h2 class="sec-h reveal">Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Get Data in Power BI</div><div class="cert-src">Microsoft Learn · May 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Discover Data Analysis</div><div class="cert-src">Microsoft Learn · May 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Get Started Building with Power BI</div><div class="cert-src">Microsoft Learn · Apr 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Monitor Activities in Microsoft Fabric</div><div class="cert-src">Microsoft Learn · Apr 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Explore Azure ML Workspace Resources</div><div class="cert-src">Microsoft Learn · Apr 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><div><div class="cert-name">Data Science in Microsoft Fabric</div><div class="cert-src">Microsoft Learn · Apr 2026</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">Data Science with Python</div><div class="cert-src">Simplilearn · 2024</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">SQL for Data Analysis</div><div class="cert-src">Simplilearn · 2024</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">Full-Stack Development</div><div class="cert-src">Simplilearn · 2024</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">📗</div><div><div class="cert-name">Master Microsoft Excel</div><div class="cert-src">Udemy · 2025</div></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">📘</div><div><div class="cert-name">NodeJS</div><div class="cert-src">IBM Dev Skills · 2023</div></div></div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- DEPLOY + CONTACT -->
+<section id="deploy" class="sec">
+  <h2 class="sec-h reveal">Get in <span>touch</span></h2>
+  <div class="contact-layout reveal">
+    <div>
+      <div class="contact-links">
+        <a href="mailto:mahammadsarfraz575@gmail.com" class="c-link"><span class="c-icon">✉</span>mahammadsarfraz575@gmail.com</a>
+        <a href="tel:+971561211099" class="c-link"><span class="c-icon">📞</span>+971 56 121 1099</a>
+        <a href="https://www.linkedin.com/in/mahammad-sarfraz" target="_blank" class="c-link"><span class="c-icon">💼</span>linkedin.com/in/mahammad-sarfraz</a>
+        <a href="https://github.com/mahammadsarfraz575" target="_blank" class="c-link"><span class="c-icon">⌥</span>github.com/mahammadsarfraz575</a>
+        <a href="https://mahammadsarfraz575.github.io/mahammad-sarfraz.profile/" target="_blank" class="c-link"><span class="c-icon">🌐</span>Portfolio Profile Page ↗</a>
+      </div>
+      <div class="open-to">
+        <div class="open-to-title">Open to these roles</div>
+        <div class="open-to-tags">
+          <span class="role-tag">Data Analyst</span>
+          <span class="role-tag">BI Analyst</span>
+          <span class="role-tag">Analytics Engineer</span>
+          <span class="role-tag">Data Engineer</span>
+          <span class="role-tag">AI Systems Developer</span>
+          <span class="role-tag">Full-Stack Developer</span>
+        </div>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="t-bar">
+        <div class="t-circle r"></div><div class="t-circle y"></div><div class="t-circle g"></div>
+        <div class="t-title">mahammad@data-systems ~ zsh</div>
+      </div>
+      <div class="t-body">
+        <div class="t-line"><span class="t-p">~$</span><span class="t-c"> cat me.json</span></div>
+        <div class="t-o">{ <span class="t-k">"name"</span>: <span class="t-v">"Mahammad Sarfraz"</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"role"</span>: <span class="t-v">"Data Analyst"</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"location"</span>: <span class="t-v">"Dubai, UAE"</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"education"</span>: <span class="t-v">"MCA Data Science A+"</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"live_projects"</span>: <span class="t-v">6</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"certifications"</span>: <span class="t-v">11</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"visa"</span>: <span class="t-v">"UAE valid Nov 2026"</span>,</div>
+        <div class="t-o">&nbsp;&nbsp;<span class="t-k">"status"</span>: <span class="t-v">"open_to_work"</span> }</div>
+        <div class="t-line" style="margin-top:10px"><span class="t-p">~$</span><span class="t-c"> _</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GITHUB DEPLOY -->
+  <div class="deploy-box reveal" id="contact">
+    <div class="deploy-title">Host this on GitHub Pages <span>— free, 5 minutes</span></div>
+    <div class="deploy-sub">Rename this file to <strong>index.html</strong> → upload to your repo → live at <strong>mahammadsarfraz575.github.io</strong></div>
+    <div class="deploy-steps">
+      <div class="d-step"><div class="d-step-n">Step 1</div><div class="d-step-t">Create Repo</div><div class="d-step-d">New repo named exactly <strong>mahammadsarfraz575.github.io</strong> — set Public</div></div>
+      <div class="d-step"><div class="d-step-n">Step 2</div><div class="d-step-t">Rename & Upload</div><div class="d-step-d">Rename this file to <strong>index.html</strong> — drag and drop into the repo</div></div>
+      <div class="d-step"><div class="d-step-n">Step 3</div><div class="d-step-t">Enable Pages</div><div class="d-step-d">Settings → Pages → Deploy from branch → main → root → Save</div></div>
+      <div class="d-step"><div class="d-step-n">Step 4</div><div class="d-step-t">Go Live</div><div class="d-step-d">Wait 90 seconds → visit <strong>mahammadsarfraz575.github.io</strong> ✓</div></div>
+    </div>
+    <div class="deploy-code">
+      <div><span class="dm"># Or via terminal:</span></div>
+      <div><span class="dc">git</span> <span class="dw">init && git add index.html</span></div>
+      <div><span class="dc">git</span> <span class="dw">commit -m</span> <span class="dg">"Portfolio live"</span></div>
+      <div><span class="dc">git</span> <span class="dw">remote add origin https://github.com/mahammadsarfraz575/mahammadsarfraz575.github.io.git</span></div>
+      <div><span class="dc">git</span> <span class="dw">push -u origin main</span></div>
+      <div style="margin-top:8px"><span class="dg">✓  Live at https://mahammadsarfraz575.github.io</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Mahammad Sarfraz · Data Analyst · Dubai, UAE · 2026</div>
+  <div style="margin-top:6px">
+    <a href="mailto:mahammadsarfraz575@gmail.com">mahammadsarfraz575@gmail.com</a> ·
+    <a href="https://www.linkedin.com/in/mahammad-sarfraz" target="_blank">LinkedIn</a> ·
+    <a href="https://github.com/mahammadsarfraz575" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+// ── BACKGROUND CANVAS ──
+const bgCanvas = document.getElementById('bg-canvas');
+const bgCtx = bgCanvas.getContext('2d');
+let W, H;
+function resizeBg() { W = bgCanvas.width = window.innerWidth; H = bgCanvas.height = window.innerHeight; }
+resizeBg(); window.addEventListener('resize', resizeBg);
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(init) {
+    this.x = Math.random() * W;
+    this.y = init ? Math.random() * H : (Math.random() > 0.5 ? -5 : H + 5);
+    this.vx = (Math.random() - 0.5) * 0.2;
+    this.vy = (Math.random() - 0.5) * 0.2;
+    this.r = Math.random() * 1 + 0.3;
+    this.alpha = Math.random() * 0.25 + 0.05;
+    this.color = ['#6366F1','#EAB308','#F1F5F9'][Math.floor(Math.random()*3)];
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(false);
+  }
+  draw() {
+    bgCtx.globalAlpha = this.alpha;
+    bgCtx.fillStyle = this.color;
+    bgCtx.beginPath();
+    bgCtx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    bgCtx.fill();
+  }
+}
+const particles = Array.from({length: 80}, () => new Particle());
+
+function drawBg() {
+  bgCtx.clearRect(0, 0, W, H);
+  // grid
+  bgCtx.globalAlpha = 0.015;
+  bgCtx.strokeStyle = '#6366F1';
+  bgCtx.lineWidth = 0.5;
+  for (let x = 0; x < W; x += 100) { bgCtx.beginPath(); bgCtx.moveTo(x,0); bgCtx.lineTo(x,H); bgCtx.stroke(); }
+  for (let y = 0; y < H; y += 100) { bgCtx.beginPath(); bgCtx.moveTo(0,y); bgCtx.lineTo(W,y); bgCtx.stroke(); }
+  // connections
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i+1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 120) {
+        bgCtx.globalAlpha = (1 - d/120) * 0.04;
+        bgCtx.strokeStyle = '#6366F1'; bgCtx.lineWidth = 0.4;
+        bgCtx.beginPath(); bgCtx.moveTo(particles[i].x, particles[i].y); bgCtx.lineTo(particles[j].x, particles[j].y); bgCtx.stroke();
+      }
+    }
+  }
+  particles.forEach(p => { p.update(); p.draw(); });
+  bgCtx.globalAlpha = 1;
+  requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// ── PROJECT CARD CHARTS ──
+document.querySelectorAll('.pc').forEach(c => {
+  const col = c.dataset.c, cc = c.getContext('2d');
+  let cW, cH, pts = [];
+  function rsz() {
+    cW = c.width = c.parentElement.offsetWidth;
+    cH = c.height = c.parentElement.offsetHeight;
+    pts = Array.from({length:24}, (_,i) => ({ x:(i/23)*cW, y: cH*0.3 + Math.random()*cH*0.4 }));
+  }
+  rsz();
+  let ph = Math.random() * Math.PI * 2;
+  function draw() {
+    cc.clearRect(0,0,cW,cH); ph += 0.006;
+    const a = pts.map((p,i) => ({ x: p.x, y: p.y + Math.sin(ph + i*0.3)*8 }));
+    const g = cc.createLinearGradient(0,0,0,cH);
+    g.addColorStop(0, col+'22'); g.addColorStop(1, col+'00');
+    cc.beginPath(); cc.moveTo(0,cH); a.forEach(p => cc.lineTo(p.x,p.y)); cc.lineTo(cW,cH); cc.closePath();
+    cc.fillStyle = g; cc.fill();
+    cc.beginPath(); a.forEach((p,i) => i===0 ? cc.moveTo(p.x,p.y) : cc.lineTo(p.x,p.y));
+    cc.strokeStyle = col; cc.lineWidth = 1.5; cc.globalAlpha = 0.5; cc.stroke(); cc.globalAlpha = 1;
+    a.forEach((p,i) => { if(i%6===0){ cc.beginPath(); cc.arc(p.x,p.y,2,0,Math.PI*2); cc.fillStyle=col; cc.globalAlpha=0.7; cc.fill(); cc.globalAlpha=1; }});
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+
+// ── TYPED ANIMATION ──
+const roles = ['Data Analyst','BI Developer','Analytics Engineer','ML Systems Builder','Power BI Specialist','Data Platform Engineer'];
+let ri = 0, ci = 0, deleting = false;
+const tEl = document.getElementById('typed-text');
+function typeNext() {
+  const r = roles[ri];
+  if (!deleting) { ci++; if (ci > r.length) { deleting = true; setTimeout(typeNext, 1800); return; } }
+  else { ci--; if (ci === 0) { deleting = false; ri = (ri+1) % roles.length; } }
+  tEl.innerHTML = r.slice(0,ci) + '<span class="typed-cursor"></span>';
+  setTimeout(typeNext, deleting ? 35 : 80);
+}
+typeNext();
+
+// ── COUNTERS ──
+function animCount(el, target, suffix, dur) {
+  let start = null;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts-start)/dur, 1);
+    const e = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.floor(e*target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+let counted = false;
+function startCounters() {
+  if (counted) return; counted = true;
+  animCount(document.getElementById('c-exp'),   2,  '+', 1200);
+  animCount(document.getElementById('c-proj'),  10, '+', 1500);
+  animCount(document.getElementById('c-tools'), 20, '+', 1600);
+  animCount(document.getElementById('c-certs'), 11, '',  1400);
+}
+setTimeout(startCounters, 400);
+
+// ── SCROLL REVEAL ──
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+revEls.forEach(el => revObs.observe(el));
+
+// ── FILTER + SEARCH ──
+const cards = document.querySelectorAll('.proj-card');
+const noRes = document.getElementById('no-results');
+const countEl = document.getElementById('proj-count');
+let activeFilter = 'all', searchQuery = '';
+
+function updateProjects() {
+  let visible = 0;
+  cards.forEach(card => {
+    const cats = card.dataset.cat || '';
+    const tags = card.dataset.tags || '';
+    const title = card.querySelector('.proj-title').textContent.toLowerCase();
+    const matchFilter = activeFilter === 'all' || cats.includes(activeFilter);
+    const matchSearch = searchQuery === '' || tags.includes(searchQuery) || title.includes(searchQuery);
+    if (matchFilter && matchSearch) { card.classList.remove('hidden'); visible++; }
+    else card.classList.add('hidden');
+  });
+  countEl.textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+  noRes.classList.toggle('show', visible === 0);
+}
+
+document.querySelectorAll('.ftab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    updateProjects();
+  });
+});
+
+document.getElementById('proj-search').addEventListener('input', e => {
+  searchQuery = e.target.value.toLowerCase().trim();
+  updateProjects();
+});
+
+// ── NAV ACTIVE + SHRINK ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  nav.style.height = window.scrollY > 50 ? '52px' : '64px';
+  // Active nav link
+  const sections = ['skills','projects','experience','certs','contact'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  document.querySelectorAll('.nav-items a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
