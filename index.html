@@ -364,6 +364,46 @@ h2.sh span{color:var(--indigo)}
 .tp{color:#10B981}.tc{color:var(--white)}.to{color:var(--dim);padding-left:12px}
 .tk{color:var(--sky)}.tv{color:var(--gold)}
 
+/* ── EDUCATION ── */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu-card{
+  background:var(--slate);border:1px solid var(--border);
+  border-radius:16px;padding:32px;position:relative;overflow:hidden;
+  transition:all .25s;
+}
+.edu-card:hover{border-color:rgba(99,102,241,.3);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.edu-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--indigo),var(--gold));
+}
+.edu-degree-wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.edu-level{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--indigo);background:rgba(99,102,241,.08);
+  border:1px solid rgba(99,102,241,.18);padding:3px 9px;border-radius:100px;
+  white-space:nowrap;flex-shrink:0;margin-top:4px;
+}
+.edu-degree{font-family:var(--syne);font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2}
+.edu-spec{font-size:13px;color:var(--indigo);font-weight:600;margin-bottom:16px}
+.edu-college{font-size:14px;color:var(--white);font-weight:500;margin-bottom:3px}
+.edu-location{font-size:12px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:5px}
+.edu-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.edu-year{
+  font-family:'Courier New',monospace;font-size:12px;font-weight:600;
+  color:var(--muted);background:var(--ink2);
+  padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.05);
+}
+.edu-grade{
+  font-size:12px;font-weight:700;
+  color:var(--green);background:rgba(16,185,129,.08);
+  border:1px solid rgba(16,185,129,.2);
+  padding:4px 12px;border-radius:100px;display:flex;align-items:center;gap:5px;
+}
+.edu-subjects{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.edu-sub{font-size:10px;font-weight:500;padding:3px 8px;border-radius:5px;
+  background:var(--ink2);color:var(--muted);border:1px solid rgba(255,255,255,.04)}
+@media(max-width:700px){.edu-grid{grid-template-columns:1fr}}
+
 /* ── FOOTER ── */
 footer{position:relative;z-index:1;text-align:center;padding:28px 56px;
   border-top:1px solid var(--border);font-size:12px;color:var(--dim)}
@@ -420,6 +460,7 @@ footer a:hover{color:var(--white)}
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#certs">Certifications</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="Mahammad_Sarfraz_CV.pdf" download class="nav-dl">⬇ Download CV</a></li>
   </ul>
@@ -432,6 +473,7 @@ footer a:hover{color:var(--white)}
   <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#certs" onclick="closeMenu()">Certifications</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="Mahammad_Sarfraz_CV.pdf" download class="m-dl">⬇ Download CV</a>
 </div>
@@ -701,6 +743,67 @@ footer a:hover{color:var(--white)}
     <div class="cert-c rv"><div class="cert-ico">🎓</div><div><div class="cert-nm">Full-Stack Development</div><div class="cert-src">Simplilearn · 2024</div></div></div>
     <div class="cert-c rv"><div class="cert-ico">📗</div><div><div class="cert-nm">Master Microsoft Excel</div><div class="cert-src">Udemy · 2025</div></div></div>
     <div class="cert-c rv"><div class="cert-ico">📘</div><div><div class="cert-nm">NodeJS</div><div class="cert-src">IBM Dev Skills · 2023</div></div></div>
+  </div>
+</section>
+
+<div class="sline"></div>
+
+<!-- EDUCATION -->
+<section id="education" class="sec">
+  <h2 class="sh rv">Education</h2>
+  <div class="edu-grid">
+
+    <div class="edu-card rv">
+      <div class="edu-degree-wrap">
+        <div>
+          <div class="edu-degree">Master of Computer Applications</div>
+          <div class="edu-spec">Specialisation — Data Science</div>
+        </div>
+        <span class="edu-level">Master's</span>
+      </div>
+      <div class="edu-college">Presidency College</div>
+      <div class="edu-location">📍 Bengaluru, India</div>
+      <div class="edu-meta">
+        <span class="edu-year">2021 — 2023</span>
+        <span class="edu-grade">⭐ Grade: A+</span>
+      </div>
+      <div class="edu-subjects">
+        <span class="edu-sub">Data Science</span>
+        <span class="edu-sub">Machine Learning</span>
+        <span class="edu-sub">Big Data Analytics</span>
+        <span class="edu-sub">Statistics</span>
+        <span class="edu-sub">Python</span>
+        <span class="edu-sub">Database Systems</span>
+        <span class="edu-sub">Deep Learning</span>
+        <span class="edu-sub">Data Mining</span>
+      </div>
+    </div>
+
+    <div class="edu-card rv">
+      <div class="edu-degree-wrap">
+        <div>
+          <div class="edu-degree">Bachelor of Computer Applications</div>
+          <div class="edu-spec">Computer Applications & Software Engineering</div>
+        </div>
+        <span class="edu-level">Bachelor's</span>
+      </div>
+      <div class="edu-college">St Philomena College</div>
+      <div class="edu-location">📍 Puttur, India</div>
+      <div class="edu-meta">
+        <span class="edu-year">2018 — 2021</span>
+        <span class="edu-grade">⭐ Grade: A+</span>
+      </div>
+      <div class="edu-subjects">
+        <span class="edu-sub">Python</span>
+        <span class="edu-sub">DBMS</span>
+        <span class="edu-sub">Data Structures</span>
+        <span class="edu-sub">Computer Networks</span>
+        <span class="edu-sub">Software Engineering</span>
+        <span class="edu-sub">Web Development</span>
+        <span class="edu-sub">Operating Systems</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
