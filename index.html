@@ -447,10 +447,86 @@ footer a:hover{color:var(--white)}
   .rv{opacity:1;transform:none;transition:none}
   *{animation-duration:.001ms!important}
 }
+
+/* ═══════ GLASS THEME ═══════ */
+body{background:#05060B}
+.orb{position:fixed;border-radius:50%;filter:blur(100px);z-index:0;pointer-events:none;will-change:transform}
+.orb.o1{width:560px;height:560px;background:#4F46E5;opacity:.45;top:-160px;left:-160px;animation:dr1 24s ease-in-out infinite alternate}
+.orb.o2{width:480px;height:480px;background:#0EA5E9;opacity:.28;top:38%;right:-180px;animation:dr2 28s ease-in-out infinite alternate}
+.orb.o3{width:440px;height:440px;background:#EAB308;opacity:.16;bottom:-160px;left:28%;animation:dr3 32s ease-in-out infinite alternate}
+@keyframes dr1{to{transform:translate(180px,120px) scale(1.15)}}
+@keyframes dr2{to{transform:translate(-160px,-140px) scale(1.1)}}
+@keyframes dr3{to{transform:translate(140px,-110px) scale(1.2)}}
+
+nav{background:rgba(8,9,16,.55)!important;backdrop-filter:blur(24px) saturate(170%)!important;-webkit-backdrop-filter:blur(24px) saturate(170%)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+.mobile-menu{background:rgba(10,11,20,.8)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+
+.hero-card,.sk-grid,.pc-card,.exp-wrap,.edu-card,.cert-c,.c-link,.open-box,.cv-section,.term,.role-strip{
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025))!important;
+  border:1px solid rgba(255,255,255,.11)!important;
+  backdrop-filter:blur(18px) saturate(155%);-webkit-backdrop-filter:blur(18px) saturate(155%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 36px rgba(0,0,0,.30);
+}
+.sk-b,.exp-i{background:transparent!important}
+.sk-b:hover,.exp-i:hover{background:rgba(255,255,255,.04)!important}
+.sk-grid,.exp-wrap{gap:0!important}
+.sk-b{border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.exp-i+.exp-i{border-top:1px solid rgba(255,255,255,.07)}
+.pc-card:hover,.edu-card:hover,.cert-c:hover,.c-link:hover{border-color:rgba(165,170,255,.4)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 18px 50px rgba(0,0,0,.4),0 0 30px rgba(99,102,241,.12)}
+.hc-s,.sk-t,.edu-sub,.edu-year,.cvx-body{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.07)!important}
+.t-bar,.cv-mock-bar{background:rgba(255,255,255,.05)!important}
+.term{background:rgba(6,7,12,.6)!important}
+#psearch{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important;backdrop-filter:blur(12px)}
+.ftab{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.12)}
+.ftab.on{background:var(--indigo);border-color:var(--indigo)}
+.plive{background:rgba(7,8,13,.55)!important}
+
+/* ═══════ PROFILE PHOTO ═══════ */
+.hc-photo{position:relative;width:92px;height:92px;margin:0 auto 18px;border-radius:50%}
+.hc-ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from 0deg,#6366F1,#EAB308,#38BDF8,#6366F1);animation:spin 6s linear infinite;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hc-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid rgba(8,9,16,.8)}
+.hc-mono{display:none;width:100%;height:100%;border-radius:50%;align-items:center;justify-content:center;font-family:var(--syne);font-size:28px;font-weight:800;color:var(--white);background:linear-gradient(135deg,#4F46E5,#7C3AED);border:3px solid rgba(8,9,16,.8)}
+.hc-lbl{text-align:center}
+
+/* ═══════ ANIMATED CV ═══════ */
+.cvx{width:250px;border-radius:14px;overflow:hidden;background:rgba(10,11,20,.7);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 40px rgba(99,102,241,.15);backdrop-filter:blur(16px);animation:cvfloat 6s ease-in-out infinite}
+@keyframes cvfloat{50%{transform:translateY(-8px) rotate(-.6deg)}}
+.cvx-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.08)}
+.cvx-bar i{width:8px;height:8px;border-radius:50%;display:block}
+.cvx-bar span{font-size:9px;color:var(--muted);margin-left:6px}
+.cvx-body{position:relative;padding:16px;min-height:330px;overflow:hidden;background:transparent!important;border:0!important}
+.cvx-scan{position:absolute;left:0;right:0;height:46px;top:-46px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(99,102,241,.22),transparent);animation:scan 3.6s ease-in-out infinite}
+@keyframes scan{to{top:100%}}
+.cvx .a{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.cvx.play .a{opacity:1;transform:none;transition-delay:var(--d)}
+.cvx-name{font-family:var(--syne);font-size:15px;font-weight:700;color:var(--white)}
+.cvx-role{font-size:9px;color:var(--indigo);font-weight:600;margin:2px 0 10px;letter-spacing:.3px}
+.cvx-sec{font-size:8px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin:12px 0 6px}
+.cvx-row{display:flex;justify-content:space-between;font-size:10px;color:var(--white);margin-bottom:5px}
+.cvx-row em{font-style:normal;color:var(--muted);font-size:9px}
+.cvx-line{height:5px;border-radius:3px;background:rgba(255,255,255,.12);margin-bottom:5px}
+.cvx-tags{display:flex;flex-wrap:wrap;gap:4px}
+.cvx-tags span{font-size:8px;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.25);color:#B4B8FF}
+.cvx-proj{font-size:9.5px;color:var(--muted);margin-bottom:4px}
+.cvx-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
+.cvx-stats div{background:rgba(255,255,255,.06);border-radius:6px;padding:6px 4px;text-align:center;font-size:8px;color:var(--muted)}
+.cvx-stats b{display:block;font-family:var(--syne);font-size:13px;color:var(--indigo)}
+
+@media(max-width:900px){
+  .hero-card,.sk-grid,.pc-card,.exp-wrap,.edu-card,.cert-c,.c-link,.open-box,.cv-section,.term,.role-strip{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .orb{filter:blur(70px)}
+  .sk-b{border-right:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .orb,.hc-ring,.cvx,.cvx-scan{animation:none!important}
+  .cvx .a{opacity:1!important;transform:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
 <canvas id="bgc"></canvas>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -511,6 +587,7 @@ footer a:hover{color:var(--white)}
     </div>
 
     <div class="hero-card">
+      <div class="hc-photo"><div class="hc-ring"></div><img src="profile.jpg" alt="Mahammad Sarfraz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="hc-mono">MS</span></div>
       <div class="hc-lbl">At a glance</div>
       <div class="hc-stats">
         <div class="hc-s"><div class="hc-n" id="c1">0</div><div class="hc-l">Years in UAE</div></div>
@@ -523,8 +600,9 @@ footer a:hover{color:var(--white)}
       <div class="hc-row"><span class="hc-ico">📞</span>+971 56 121 1099</div>
       <div class="hc-row"><span class="hc-ico">🎓</span>MCA — Data Science (A+)</div>
       <div class="hc-row"><span class="hc-ico">✉</span>mahammadsarfraz575@gmail.com</div>
+      <div class="hc-row"><span class="hc-ico">🪪</span>Emirates ID valid until 02 Nov 2028</div>
       <div class="hc-badges">
-        <span class="hc-b g">UAE Visa ✓</span>
+        <span class="hc-b g">UAE Resident ✓</span>
         <span class="hc-b g">Driving Licence</span>
         <span class="hc-b i">Azure ML</span>
         <span class="hc-b gd">MS Fabric</span>
@@ -544,7 +622,7 @@ footer a:hover{color:var(--white)}
     <div class="sk-b"><div class="sk-ico">🗄️</div><div class="sk-nm">Data Engineering</div><div class="sk-ts"><span class="sk-t">SQL</span><span class="sk-t">MySQL</span><span class="sk-t">PostgreSQL</span><span class="sk-t">Snowflake</span><span class="sk-t">ETL Pipelines</span><span class="sk-t">Stored Procedures</span></div></div>
     <div class="sk-b"><div class="sk-ico">☁️</div><div class="sk-nm">Cloud & AI Infra</div><div class="sk-ts"><span class="sk-t">Azure ML</span><span class="sk-t">Microsoft Fabric</span><span class="sk-t">Firebase</span><span class="sk-t">Netlify</span><span class="sk-t">GitHub Pages</span></div></div>
     <div class="sk-b"><div class="sk-ico">🌐</div><div class="sk-nm">Web Development</div><div class="sk-ts"><span class="sk-t">PHP</span><span class="sk-t">Django</span><span class="sk-t">JavaScript</span><span class="sk-t">HTML5/CSS3</span><span class="sk-t">REST APIs</span><span class="sk-t">WordPress</span></div></div>
-    <div class="sk-b"><div class="sk-ico">⚙️</div><div class="sk-nm">Automation & Systems</div><div class="sk-ts"><span class="sk-t">Python Automation</span><span class="sk-t">Email API</span><span class="sk-t">SIMS Integration</span><span class="sk-t">PowerSchool</span><span class="sk-t">Real-Time Systems</span></div></div>
+    <div class="sk-b"><div class="sk-ico">⚙️</div><div class="sk-nm">Automation & Systems</div><div class="sk-ts"><span class="sk-t">Python Automation</span><span class="sk-t">Email API</span><span class="sk-t">SIMS</span><span class="sk-t">Nova-T</span><span class="sk-t">PowerSchool</span><span class="sk-t">ASC</span><span class="sk-t">GL · MAP · CAT4 · NGRT</span><span class="sk-t">KHDA Reporting</span><span class="sk-t">Real-Time Systems</span></div></div>
   </div>
 </section>
 
@@ -569,7 +647,7 @@ footer a:hover{color:var(--white)}
 
     <div class="pc-card" data-c="ml live" data-t="student dropout prediction machine learning python streamlit random forest classification open university">
       <div class="pvis" style="background:linear-gradient(135deg,#0e0a1e,#180f2d)"><canvas class="pvc" data-col="#6366F1"></canvas><span class="plive"><span class="lv"></span>Live</span></div>
-      <div class="pb"><div class="pcat">AI & Machine Learning</div><div class="ptitle">Student Dropout Prediction</div><div class="pdesc">End-to-end ML pipeline classifying student outcomes (pass / withdraw / fail). Handles class imbalance, missing values, multi-table feature engineering. Publicly deployed on Streamlit.</div>
+      <div class="pb"><div class="pcat">AI & Machine Learning</div><div class="ptitle">Student Dropout Prediction</div><div class="pdesc">End-to-end ML pipeline classifying student outcomes (pass / withdraw / fail) on a <strong>32,000+ student</strong> dataset (Open University Learning Analytics). Handles missing values, class imbalance and multi-table feature engineering. Publicly deployed on Streamlit.</div>
       <div class="pstack"><span class="ptag">Python</span><span class="ptag">scikit-learn</span><span class="ptag">Random Forest</span><span class="ptag">Streamlit</span><span class="ptag">Feature Engineering</span></div>
       <div class="pls"><a href="https://student-dropout-prediction-mahammadsarfraz.streamlit.app/" target="_blank" class="pl">↗ Live App</a><a href="https://github.com/mahammadsarfraz575" target="_blank" class="pl">GitHub</a></div></div>
     </div>
@@ -590,7 +668,7 @@ footer a:hover{color:var(--white)}
 
     <div class="pc-card" data-c="data" data-t="power bi dashboard academic performance school analytics etl automation dax excel reporting 4000 students">
       <div class="pvis" style="background:linear-gradient(135deg,#14091e,#200f30)"><canvas class="pvc" data-col="#C084FC"></canvas></div>
-      <div class="pb"><div class="pcat">Business Intelligence</div><div class="ptitle">Academic Performance Dashboard Suite</div><div class="pdesc">Automated Power BI dashboards integrating GL, CAT4, MAP data for 4,000+ students. Used daily by senior leadership. Python pipelines cut manual reporting time by 65%.</div>
+      <div class="pb"><div class="pcat">Business Intelligence</div><div class="ptitle">Academic Performance Dashboard Suite</div><div class="pdesc">Power BI &amp; Excel dashboards for attendance, enrolment, subject performance and progress across two curricula and four systems (SIMS, Nova-T, PowerSchool, ASC). Used daily by leadership and teachers; SQL and Python automation cut manual reporting by 65%.</div>
       <div class="pstack"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">PowerSchool</span><span class="ptag">SIMS</span></div>
       <div class="pls"><a href="mailto:mahammadsarfraz575@gmail.com" class="pl">✉ Request Demo</a></div></div>
     </div>
@@ -611,7 +689,7 @@ footer a:hover{color:var(--white)}
 
     <div class="pc-card" data-c="web live" data-t="teacher timetable scheduling javascript real-time school room load year group lesson conflict detection">
       <div class="pvis" style="background:linear-gradient(135deg,#090e1f,#10152c)"><canvas class="pvc" data-col="#818CF8"></canvas><span class="plive"><span class="lv"></span>Live</span></div>
-      <div class="pb"><div class="pcat">Real-Time Web System</div><div class="ptitle">Teacher Timetable Intelligence System</div><div class="pdesc">Live institutional system tracking teacher workload, room allocation, lesson scheduling, year-group and day-level capacity. Conflict detection prevents double-booking. Real daily users.</div>
+      <div class="pb"><div class="pcat">Real-Time Web System</div><div class="ptitle">Teacher Timetable Intelligence System</div><div class="pdesc">Live scheduling tool integrating timetable data across platforms. Tracks teacher workload, room allocation, lesson load, year-group and day-level capacity, with analysis views for leadership. Deployed on GitHub Pages.</div>
       <div class="pstack"><span class="ptag">JavaScript</span><span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">Scheduling Logic</span><span class="ptag">GitHub Pages</span></div>
       <div class="pls"><a href="https://mahammadsarfraz575.github.io/DISB---TT/" target="_blank" class="pl">↗ Live System</a><a href="https://github.com/mahammadsarfraz575/DISB---TT" target="_blank" class="pl">GitHub</a></div></div>
     </div>
@@ -651,11 +729,12 @@ footer a:hover{color:var(--white)}
       <div class="exp-top"><div class="exp-title">Data Analyst</div><div class="exp-date">Oct 2024 — Present</div></div>
       <div class="exp-org">School of Research Science · Dubai, UAE</div>
       <ul class="exp-pts">
-        <li>Manage institution-wide data across <strong>PowerSchool and SIMS</strong> for 4,000+ students — 100% accuracy for regulatory reporting.</li>
-        <li>Built automated <strong>Power BI & Excel dashboards</strong> integrating GL, CAT4, MAP — used daily by senior leadership.</li>
-        <li>Python automation pipelines cut manual reporting time by <strong>65%</strong> — same-day analytical turnaround.</li>
-        <li>Deployed the <strong>SIMS Pipeline App</strong> and <strong>Teacher Timetable System</strong> — both live in production daily.</li>
-        <li>Statistical cohort analysis surfacing learning gaps and intervention signals for curriculum decisions.</li>
+        <li>Manage academic data across <strong>two curricula and four core systems</strong> — SIMS and Nova-T (UK), PowerSchool and ASC (US) — covering registration, attendance, assessment and timetabling for <strong>4,000+ students</strong>.</li>
+        <li>Collect, reconcile and validate external assessment data (<strong>GL Assessment, MAP, Testwise – CAT4, NGRT</strong>) alongside teacher-entered assessments into one reliable view.</li>
+        <li>Build and maintain <strong>Power BI &amp; Excel dashboards</strong> for attendance, enrolment, subject performance and academic progress — used daily by leadership and teachers.</li>
+        <li>Automated extraction and reporting with <strong>SQL and Python</strong>, cutting manual reporting time by <strong>65%</strong> and enabling same-day turnaround.</li>
+        <li>Clean and validate data for academic and <strong>regulatory reporting (KHDA)</strong>, ahead of start-of-year and end-of-year promotion decisions.</li>
+        <li>Built and deployed the <strong>SIMS Pipeline App</strong> and <strong>Teacher Timetable System</strong> as live tools for school operations.</li>
       </ul>
     </div>
     <div class="exp-i">
@@ -775,32 +854,26 @@ footer a:hover{color:var(--white)}
       </a>
     </div>
     <div class="cv-right">
-      <div class="cv-mockup">
-        <div class="cv-mock-bar">
-          <div class="cv-dot" style="background:#FF5F57"></div>
-          <div class="cv-dot" style="background:#FEBC2E"></div>
-          <div class="cv-dot" style="background:#28C840"></div>
-        </div>
-        <div class="cv-mock-body">
-          <div class="cv-mock-name">Mahammad Sarfraz</div>
-          <div class="cv-mock-role">Data Analyst · Dubai, UAE</div>
-          <div class="cv-mock-line" style="width:90%"></div>
-          <div class="cv-mock-line" style="width:72%"></div>
-          <div class="cv-mock-sec">Technical Skills</div>
-          <div class="cv-mock-tags">
-            <span class="cv-mock-tag">Python</span><span class="cv-mock-tag">SQL</span>
-            <span class="cv-mock-tag">Power BI</span><span class="cv-mock-tag">Azure ML</span>
-            <span class="cv-mock-tag">scikit-learn</span><span class="cv-mock-tag">Fabric</span>
+      <div class="cvx" id="cvx">
+        <div class="cvx-bar"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><span>Mahammad_Sarfraz_CV.pdf</span></div>
+        <div class="cvx-body">
+          <div class="cvx-scan"></div>
+          <div class="cvx-name a" style="--d:.1s">Mahammad Sarfraz</div>
+          <div class="cvx-role a" style="--d:.4s">Data Analyst · BI · Junior Data Scientist</div>
+          <div class="cvx-sec a" style="--d:.8s">Experience</div>
+          <div class="cvx-row a" style="--d:1.1s"><b>Data Analyst</b><em>2024 – Now</em></div>
+          <div class="cvx-line a" style="--d:1.3s;width:92%"></div>
+          <div class="cvx-line a" style="--d:1.45s;width:70%"></div>
+          <div class="cvx-sec a" style="--d:1.9s">Skills</div>
+          <div class="cvx-tags">
+            <span class="a" style="--d:2.1s">SQL</span><span class="a" style="--d:2.25s">Power BI</span><span class="a" style="--d:2.4s">Python</span><span class="a" style="--d:2.55s">DAX</span><span class="a" style="--d:2.7s">scikit-learn</span><span class="a" style="--d:2.85s">Azure ML</span>
           </div>
-          <div class="cv-mock-sec">Experience</div>
-          <div class="cv-mock-line" style="width:85%"></div>
-          <div class="cv-mock-line" style="width:65%"></div>
-          <div class="cv-mock-line" style="width:78%"></div>
-          <div class="cv-mock-stats">
-            <div class="cv-mock-stat"><div class="cv-mock-stat-n">2+</div><div class="cv-mock-stat-l">Years</div></div>
-            <div class="cv-mock-stat"><div class="cv-mock-stat-n">11</div><div class="cv-mock-stat-l">Certs</div></div>
-            <div class="cv-mock-stat"><div class="cv-mock-stat-n">A+</div><div class="cv-mock-stat-l">MCA</div></div>
-          </div>
+          <div class="cvx-sec a" style="--d:3.2s">Live projects</div>
+          <div class="cvx-proj a" style="--d:3.45s">✓ Student Dropout Prediction</div>
+          <div class="cvx-proj a" style="--d:3.7s">✓ SIMS Data Pipeline</div>
+          <div class="cvx-proj a" style="--d:3.95s">✓ UAE Air Quality App</div>
+          <div class="cvx-proj a" style="--d:4.2s">✓ Teacher Timetable System</div>
+          <div class="cvx-stats a" style="--d:4.6s"><div><b>2+</b>Years</div><div><b>65%</b>Faster</div><div><b>A+</b>MCA</div></div>
         </div>
       </div>
     </div>
@@ -821,6 +894,7 @@ footer a:hover{color:var(--white)}
         <a href="https://github.com/mahammadsarfraz575" target="_blank" class="c-link"><span class="c-ico">⌥</span>github.com/mahammadsarfraz575</a>
         <a href="Mahammad_Sarfraz_CV.pdf" download class="c-link" style="border-color:rgba(99,102,241,.25);color:var(--indigo)"><span class="c-ico">⬇</span>Download CV — Mahammad_Sarfraz_CV.pdf</a>
       </div>
+      <div class="open-box" style="margin-bottom:12px"><div class="open-title">Availability</div><div class="open-tags"><span class="rtag">UAE Resident</span><span class="rtag">Emirates ID valid until 02 Nov 2028</span><span class="rtag">UAE Driving Licence</span><span class="rtag">Immediate start</span></div></div>
       <div class="open-box">
         <div class="open-title">Open to these roles</div>
         <div class="open-tags">
@@ -843,7 +917,7 @@ footer a:hover{color:var(--white)}
         <div class="to">&nbsp;&nbsp;<span class="tk">"mca"</span>: <span class="tv">"Data Science A+"</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"certs"</span>: <span class="tv">11</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"live_apps"</span>: <span class="tv">6</span>,</div>
-        <div class="to">&nbsp;&nbsp;<span class="tk">"visa"</span>: <span class="tv">"UAE valid Nov 2026"</span>,</div>
+        <div class="to">&nbsp;&nbsp;<span class="tk">"emirates_id"</span>: <span class="tv">"valid until 02 Nov 2028"</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"status"</span>: <span class="tv">"open_to_work"</span> }</div>
         <div class="t-row" style="margin-top:10px"><span class="tp">~$</span><span class="tc"> _</span></div>
       </div>
@@ -912,6 +986,14 @@ rvs.forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').style.height=window.scrollY>50?'52px':'62px';
 });
+
+// ── ANIMATED CV LOOP ──
+(function(){
+  const cv=document.getElementById('cvx'); if(!cv) return;
+  let started=false;
+  function play(){cv.classList.remove('play');void cv.offsetWidth;setTimeout(()=>cv.classList.add('play'),80)}
+  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!started){started=true;play();setInterval(play,11000)}})},{threshold:.25}).observe(cv);
+})();
 </script>
 </body>
 </html>
